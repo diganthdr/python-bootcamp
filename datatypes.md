@@ -271,6 +271,312 @@ x = 10
 print(x)  # Output: 10
 
 # Reset to None
+
+## Assignment
+Here are some assignments focused on Python data types, including strings, lists, tuples, dictionaries, sets, and more:
+
+### 1. **Basic Data Types**
+
+**Assignment 1:**
+- Create variables of different data types: `int`, `float`, `str`, and `bool`. Print each variable and its type.
+
+**Assignment 2:**
+- Write a function `data_types()` that takes a variable of any data type and returns a string describing the type of the variable.
+
+### 2. **Strings**
+
+**Assignment 3:**
+- Write a function `string_operations(text)` that takes a string and performs the following operations:
+  - Convert the string to uppercase.
+  - Find the length of the string.
+  - Replace spaces with underscores.
+  - Return the modified string and its length.
+
+**Assignment 4:**
+- Create a function `reverse_words(sentence)` that takes a sentence and returns the sentence with each word reversed but the order of words unchanged.
+
+### 3. **Lists**
+
+**Assignment 5:**
+- Create a function `list_operations(lst)` that takes a list of numbers and performs the following operations:
+  - Append a number to the list.
+  - Remove a number from the list.
+  - Sort the list in ascending order.
+  - Return the modified list.
+
+**Assignment 6:**
+- Write a function `merge_lists(list1, list2)` that merges two lists and removes any duplicate elements.
+
+### 4. **Tuples**
+
+**Assignment 7:**
+- Define a function `tuple_operations(tpl)` that takes a tuple and performs the following operations:
+  - Access an element by its index.
+  - Count the number of occurrences of a specific element.
+  - Return the tuple and its length.
+
+**Assignment 8:**
+- Create a function `swap_elements(tpl, index1, index2)` that takes a tuple and swaps the elements at the given indices. Return the modified tuple.
+
+### 5. **Dictionaries**
+
+**Assignment 9:**
+- Write a function `dict_operations(d)` that takes a dictionary and performs the following operations:
+  - Add a new key-value pair.
+  - Remove a key-value pair.
+  - Retrieve a value by its key.
+  - Return the updated dictionary and the retrieved value.
+
+**Assignment 10:**
+- Create a function `merge_dicts(dict1, dict2)` that merges two dictionaries. If there are duplicate keys, values from the second dictionary should overwrite values from the first.
+
+### 6. **Sets**
+
+**Assignment 11:**
+- Write a function `set_operations(s)` that takes a set and performs the following operations:
+  - Add a new element to the set.
+  - Remove an element from the set.
+  - Perform a union with another set.
+  - Return the modified set.
+
+**Assignment 12:**
+- Create a function `common_elements(set1, set2)` that returns a set containing elements that are common to both input sets.
+
+### 7. **Type Conversion**
+
+**Assignment 13:**
+- Write a function `convert_types(data)` that takes a string representation of a number and converts it to `int` and `float`. Return both converted values.
+
+**Assignment 14:**
+- Create a function `to_string(data)` that takes any data type (e.g., `int`, `float`, `list`) and converts it to a string. Return the string representation.
+
+### Answers
+
+#### Assignment 1:
+```python
+int_var = 5
+float_var = 3.14
+str_var = "Hello"
+bool_var = True
+
+print(int_var, type(int_var))
+print(float_var, type(float_var))
+print(str_var, type(str_var))
+print(bool_var, type(bool_var))
+```
+
+**Answer:**
+```
+5 <class 'int'>
+3.14 <class 'float'>
+Hello <class 'str'>
+True <class 'bool'>
+```
+
+#### Assignment 2:
+```python
+def data_types(variable):
+    return f"The type of the variable is: {type(variable).__name__}"
+
+print(data_types(10))
+print(data_types(3.14))
+print(data_types("Hello"))
+print(data_types([1, 2, 3]))
+```
+
+**Answer:**
+```
+The type of the variable is: int
+The type of the variable is: float
+The type of the variable is: str
+The type of the variable is: list
+```
+
+#### Assignment 3:
+```python
+def string_operations(text):
+    upper_text = text.upper()
+    length = len(text)
+    replaced_text = text.replace(" ", "_")
+    return replaced_text, length
+
+print(string_operations("Hello World"))
+```
+
+**Answer:**
+```
+('Hello_World', 11)
+```
+
+#### Assignment 4:
+```python
+def reverse_words(sentence):
+    words = sentence.split()
+    reversed_words = [word[::-1] for word in words]
+    return ' '.join(reversed_words)
+
+print(reverse_words("Hello World"))
+```
+
+**Answer:**
+```
+olleH dlroW
+```
+
+#### Assignment 5:
+```python
+def list_operations(lst):
+    lst.append(10)
+    lst.remove(5)
+    lst.sort()
+    return lst
+
+print(list_operations([5, 2, 9, 1]))
+```
+
+**Answer:**
+```
+[1, 2, 9, 10]
+```
+
+#### Assignment 6:
+```python
+def merge_lists(list1, list2):
+    merged_list = list1 + list2
+    return list(set(merged_list))
+
+print(merge_lists([1, 2, 3], [3, 4, 5]))
+```
+
+**Answer:**
+```
+[1, 2, 3, 4, 5]
+```
+
+#### Assignment 7:
+```python
+def tuple_operations(tpl):
+    index = 1
+    element = tpl[index]
+    count = tpl.count(element)
+    return tpl, count
+
+print(tuple_operations((1, 2, 2, 3)))
+```
+
+**Answer:**
+```
+((1, 2, 2, 3), 2)
+```
+
+#### Assignment 8:
+```python
+def swap_elements(tpl, index1, index2):
+    tpl = list(tpl)
+    tpl[index1], tpl[index2] = tpl[index2], tpl[index1]
+    return tuple(tpl)
+
+print(swap_elements((1, 2, 3), 0, 2))
+```
+
+**Answer:**
+```
+(3, 2, 1)
+```
+
+#### Assignment 9:
+```python
+def dict_operations(d):
+    d['new_key'] = 'new_value'
+    del d['b']
+    value = d.get('a')
+    return d, value
+
+print(dict_operations({'a': 1, 'b': 2}))
+```
+
+**Answer:**
+```
+({'a': 1, 'new_key': 'new_value'}, 1)
+```
+
+#### Assignment 10:
+```python
+def merge_dicts(dict1, dict2):
+    merged_dict = dict1.copy()
+    merged_dict.update(dict2)
+    return merged_dict
+
+print(merge_dicts({'a': 1}, {'b': 2, 'a': 3}))
+```
+
+**Answer:**
+```
+{'a': 3, 'b': 2}
+```
+
+#### Assignment 11:
+```python
+def set_operations(s):
+    s.add(4)
+    s.remove(1)
+    s.union({5, 6})
+    return s
+
+print(set_operations({1, 2, 3}))
+```
+
+**Answer:**
+```
+{2, 3, 4, 5, 6}
+```
+
+#### Assignment 12:
+```python
+def common_elements(set1, set2):
+    return set1.intersection(set2)
+
+print(common_elements({1, 2, 3}, {2, 3, 4}))
+```
+
+**Answer:**
+```
+{2, 3}
+```
+
+#### Assignment 13:
+```python
+def convert_types(data):
+    int_value = int(data)
+    float_value = float(data)
+    return int_value, float_value
+
+print(convert_types("42.5"))
+```
+
+**Answer:**
+```
+(42, 42.5)
+```
+
+#### Assignment 14:
+```python
+def to_string(data):
+    return str(data)
+
+print(to_string(100))
+print(to_string(3.14))
+print(to_string([1, 2, 3]))
+```
+
+**Answer:**
+```
+100
+3.14
+[1, 2, 3]
+```
+
+These assignments should provide a comprehensive practice for handling various Python data types.
 x = None
 print(x)  # Output: None
 ```
