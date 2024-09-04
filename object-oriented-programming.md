@@ -183,7 +183,92 @@ print(circle.area())     # Output: 50.24
 - `Rectangle` and `Circle` provide concrete implementations of `area`.
 
 ---
+## About static and class methods
+In Python, static and class methods are special types of methods that belong to a class rather than an instance of the class. They are defined using specific decorators and have distinct purposes.
 
+### **1. Static Methods**
+
+**Static methods** do not modify class state or instance state. They are used to perform operations that are related to the class but do not need access to class or instance attributes. Static methods are defined using the `@staticmethod` decorator.
+
+**Example:**
+
+```python
+class MathUtils:
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+    @staticmethod
+    def subtract(x, y):
+        return x - y
+
+# Using static methods
+result_add = MathUtils.add(5, 3)
+result_subtract = MathUtils.subtract(5, 3)
+
+print(f"Addition: {result_add}")       # Output: Addition: 8
+print(f"Subtraction: {result_subtract}") # Output: Subtraction: 2
+```
+
+**Explanation:**
+- **Static methods** are called on the class itself, not on an instance.
+- They do not receive an implicit first argument like `self` or `cls`.
+- They are typically used for utility functions that operate on provided arguments.
+
+### **2. Class Methods**
+
+**Class methods** are methods that operate on the class itself rather than an instance of the class. They are defined using the `@classmethod` decorator and receive the class itself as the first argument, conventionally named `cls`.
+
+**Example:**
+
+```python
+class Person:
+    population = 0
+    
+    def __init__(self, name):
+        self.name = name
+        Person.population += 1
+
+    @classmethod
+    def get_population(cls):
+        return cls.population
+
+    @classmethod
+    def create_person(cls, name):
+        return cls(name)
+
+# Creating instances and using class methods
+person1 = Person("Alice")
+person2 = Person("Bob")
+
+print(f"Population: {Person.get_population()}")  # Output: Population: 2
+
+# Creating an instance using a class method
+person3 = Person.create_person("Charlie")
+print(person3.name)  # Output: Charlie
+print(f"Population: {Person.get_population()}")  # Output: Population: 3
+```
+
+**Explanation:**
+- **Class methods** are called on the class itself and receive the class (`cls`) as their first parameter.
+- They can access and modify class-level attributes.
+- They are often used for factory methods that create instances of the class or for operations that involve class-level data.
+
+### **Summary**
+
+- **Static Methods:**
+  - Use `@staticmethod` decorator.
+  - Do not take `self` or `cls` as the first argument.
+  - Used for utility functions related to the class but not involving class or instance state.
+
+- **Class Methods:**
+  - Use `@classmethod` decorator.
+  - Take `cls` as the first argument, representing the class itself.
+  - Used for operations that involve class-level data or as factory methods for creating class instances.
+
+Understanding when to use static and class methods helps you design your classes more effectively and manage state and behavior in a clear and organized manner.
+
+---
 ### **6. Practice Exercises**
 
 1. **Create a `Vehicle` Class:**
