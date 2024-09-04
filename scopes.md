@@ -213,3 +213,29 @@ Yes, scopes in C are somewhat different from Python, though there are some simil
 - **Python** is more flexible with fewer scope levels, focusing on function-level scopes and using the LEGB rule (Local, Enclosing, Global, Built-in).
 
 Understanding these differences is crucial when switching between or integrating C and Python code, especially in multi-language projects like those using Python with C extensions.
+
+
+## Assignment
+Here are some assignments focused on understanding and practicing variable scopes in Python:
+
+### 1. **Local vs. Global Scope**
+- **Assignment 1:** Create a global variable `global_var` and a function `update_variable()` that assigns a new value to `global_var`. Print `global_var` inside and outside the function to show the difference.
+- **Assignment 2:** Define a function `change_value()` that tries to modify a global variable `value` without using the `global` keyword. Observe the result and then modify the function to correctly update the global variable.
+
+### 2. **Nested Functions**
+- **Assignment 3:** Write a function `outer_function()` that defines a local variable `outer_var`. Inside `outer_function()`, define a nested function `inner_function()` that prints `outer_var`. Call `inner_function()` from within `outer_function()` and verify that `inner_function()` can access `outer_var`.
+- **Assignment 4:** Create a function `enclosing()` that defines a local variable `x` and a nested function `inner()` that returns the value of `x`. Call `inner()` from `enclosing()` and print the result.
+
+### 3. **Nonlocal Keyword**
+- **Assignment 5:** Write a function `outer()` that defines a local variable `x` and a nested function `inner()` that modifies `x` using the `nonlocal` keyword. Print the value of `x` from both `outer()` and `inner()` to observe the effect of `nonlocal`.
+- **Assignment 6:** Create a function `counter()` that initializes a counter variable `count` and a nested function `increment()` that uses `nonlocal` to update `count`. Call `increment()` multiple times from `counter()` and print the counter value.
+
+### 4. **Variable Shadowing**
+- **Assignment 7:** Define a function `example()` with a local variable `x` and a nested function `inner()` that also defines a local variable `x`. Print the values of `x` in both `example()` and `inner()` to demonstrate variable shadowing.
+- **Assignment 8:** Write a function `calculate()` that takes a parameter `x` and defines a local variable `x` inside the function. Print the parameter `x` and the local variable `x` to observe the scope and shadowing.
+
+### 5. **Global and Nonlocal Interaction**
+- **Assignment 9:** Define a global variable `global_counter` and a function `outer()` that defines a local variable `counter` and a nested function `inner()`. Inside `inner()`, modify `global_counter` and `counter`. Print the values of `global_counter` and `counter` from both `outer()` and `inner()`.
+- **Assignment 10:** Create a function `modify_scope()` with a global variable `total` and a nested function `update_total()` that modifies `total` using both `global` and `nonlocal`. Observe the effects of these keywords on the global and local scopes.
+
+These assignments will help you explore and understand the concepts of variable scope, including global, local, and nested scopes, as well as the use of keywords like `global` and `nonlocal`.
