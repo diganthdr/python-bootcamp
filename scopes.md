@@ -239,3 +239,244 @@ Here are some assignments focused on understanding and practicing variable scope
 - **Assignment 10:** Create a function `modify_scope()` with a global variable `total` and a nested function `update_total()` that modifies `total` using both `global` and `nonlocal`. Observe the effects of these keywords on the global and local scopes.
 
 These assignments will help you explore and understand the concepts of variable scope, including global, local, and nested scopes, as well as the use of keywords like `global` and `nonlocal`.
+
+
+
+## Assignment
+Sure! Here are the assignments with their answers:
+
+### 1. **Local vs. Global Scope**
+
+**Assignment 1:**
+```python
+global_var = 10
+
+def update_variable():
+    global global_var
+    global_var = 20
+    print("Inside function:", global_var)
+
+update_variable()
+print("Outside function:", global_var)
+```
+
+**Answer:**
+```
+Inside function: 20
+Outside function: 20
+```
+
+**Assignment 2:**
+```python
+value = 5
+
+def change_value():
+    # Attempt to modify global variable without using `global`
+    value = 10
+    print("Inside function:", value)
+
+change_value()
+print("Outside function:", value)
+
+# Corrected function
+def change_value_correct():
+    global value
+    value = 10
+    print("Inside function:", value)
+
+change_value_correct()
+print("Outside function:", value)
+```
+
+**Answer:**
+```
+Inside function: 10
+Outside function: 5
+
+Inside function: 10
+Outside function: 10
+```
+
+### 2. **Nested Functions**
+
+**Assignment 3:**
+```python
+def outer_function():
+    outer_var = "I am outer"
+
+    def inner_function():
+        print("Inner function can access:", outer_var)
+
+    inner_function()
+
+outer_function()
+```
+
+**Answer:**
+```
+Inner function can access: I am outer
+```
+
+**Assignment 4:**
+```python
+def enclosing():
+    x = 5
+
+    def inner():
+        return x
+
+    result = inner()
+    print("Value from inner function:", result)
+
+enclosing()
+```
+
+**Answer:**
+```
+Value from inner function: 5
+```
+
+### 3. **Nonlocal Keyword**
+
+**Assignment 5:**
+```python
+def outer():
+    x = 10
+
+    def inner():
+        nonlocal x
+        x = 20
+        print("Inner function:", x)
+
+    inner()
+    print("Outer function:", x)
+
+outer()
+```
+
+**Answer:**
+```
+Inner function: 20
+Outer function: 20
+```
+
+**Assignment 6:**
+```python
+def counter():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        print("Increment function:", count)
+
+    increment()
+    increment()
+    increment()
+
+counter()
+```
+
+**Answer:**
+```
+Increment function: 1
+Increment function: 2
+Increment function: 3
+```
+
+### 4. **Variable Shadowing**
+
+**Assignment 7:**
+```python
+def example():
+    x = "outer"
+
+    def inner():
+        x = "inner"
+        print("Inner function:", x)
+
+    inner()
+    print("Outer function:", x)
+
+example()
+```
+
+**Answer:**
+```
+Inner function: inner
+Outer function: outer
+```
+
+**Assignment 8:**
+```python
+def calculate(x):
+    x = x * 2
+    print("Parameter x:", x)
+    x = 10
+    print("Local x:", x)
+
+calculate(5)
+```
+
+**Answer:**
+```
+Parameter x: 10
+Local x: 10
+```
+
+### 5. **Global and Nonlocal Interaction**
+
+**Assignment 9:**
+```python
+global_counter = 0
+
+def outer():
+    counter = 1
+
+    def inner():
+        global global_counter
+        nonlocal counter
+        global_counter += 1
+        counter += 1
+        print("Inner function - global_counter:", global_counter)
+        print("Inner function - counter:", counter)
+
+    inner()
+    print("Outer function - global_counter:", global_counter)
+    print("Outer function - counter:", counter)
+
+outer()
+```
+
+**Answer:**
+```
+Inner function - global_counter: 1
+Inner function - counter: 2
+Outer function - global_counter: 1
+Outer function - counter: 2
+```
+
+**Assignment 10:**
+```python
+total = 100
+
+def modify_scope():
+    global total
+    total = 200
+
+    def inner():
+        nonlocal total
+        total = 300
+
+    inner()
+    print("Inside modify_scope - total:", total)
+
+modify_scope()
+print("Outside modify_scope - total:", total)
+```
+
+**Answer:**
+```
+Inside modify_scope - total: 300
+Outside modify_scope - total: 300
+```
