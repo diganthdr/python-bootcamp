@@ -580,5 +580,3 @@ These assignments should provide a comprehensive practice for handling various P
 x = None
 print(x)  # Output: None
 ```
-
-These snippets provide a quick overview of the most common Python data types and some basic operations you can perform with each.
