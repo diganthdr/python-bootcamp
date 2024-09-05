@@ -576,7 +576,3 @@ print(to_string([1, 2, 3]))
 [1, 2, 3]
 ```
 
-These assignments should provide a comprehensive practice for handling various Python data types.
-x = None
-print(x)  # Output: None
-```
