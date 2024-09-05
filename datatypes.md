@@ -270,7 +270,7 @@ if x is None:
 x = 10
 print(x)  # Output: 10
 
-# Reset to None
+```
 
 ## Assignment
 Here are some assignments focused on Python data types, including strings, lists, tuples, dictionaries, sets, and more:
